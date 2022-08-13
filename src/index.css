@@ -1,0 +1,140 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;400;600&display=swap");
+
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
+    monospace;
+}
+
+.Navbar {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem;
+  background-color: #1f6582;
+}
+
+.eden {
+  color: #dad1b4;
+  font-family: "Girassol", cursive;
+  font-size: larger;
+}
+
+.block {
+  padding-right: 0.2rem;
+  color: white;
+}
+
+.sekiz {
+  font-size: larger;
+  color: #dad1b4;
+}
+
+.navbarEDEN {
+  display: flex;
+  font-size: x-large;
+  cursor: pointer;
+}
+
+.claruswaynavbar {
+  cursor: pointer;
+}
+
+.buttonicon {
+  border-radius: 1rem;
+  width: 2.4rem;
+  height: 2rem;
+  cursor: pointer;
+}
+
+.profil {
+  display: none;
+}
+
+.Loginyazi {
+  color: #1f6582;
+}
+
+.block {
+  size: rem;
+}
+
+.loginContainer {
+  display: flex;
+  text-align: center;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  background-color: blueviolet;
+}
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.Dasboard {
+  text-align: center;
+  font-family: "Girassol", cursive;
+  color: #1f6582;
+  margin-top: 2rem;
+  font-size: 2.5rem;
+}
+
+.NewBlog {
+  padding-right: 0.5rem;
+}
+
+.cizgi {
+  color: white;
+}
+
+.kirmizi {
+  color: red;
+}
+
+.turuncu {
+  color: orange;
+}
+
+.yesil {
+  color: green;
+}
+
+.FPassword {
+  text-align: left;
+  color: blue;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+.Profile {
+  background-color: #3476d2;
+  color: white;
+  height: 2rem;
+  width: 4rem;
+  font-size: 1.1rem;
+  margin-right: 0.5rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
+
+.NLogout {
+  background-color: #3476d2;
+  color: white;
+  height: 2rem;
+  width: 4rem;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 0.2rem;
+  cursor: pointer;
+}
