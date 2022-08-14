@@ -14,6 +14,11 @@ import {
 import { auth } from "../helpers/firebase";
 import { GoogleAuthProvider } from "firebase/auth";
 
+
+
+
+
+
 const Login = () => {
   const [info, setInfo] = useState({
     email: "",
@@ -35,13 +40,14 @@ const Login = () => {
   };
 
   //! Login islemi
-  const signIn = async (email, password, navigate) => {
+ const signIn = async (email, password, navigate) => {
     try {
       let userCredential = await signInWithEmailAndPassword(
         auth,
         email,
         password
       );
+      sessionStorage.setItem("user", JSON.stringify(userCredential.user));
       toastSuccessNotify("Erfolgreich");
       navigate("/");
     } catch (err) {
