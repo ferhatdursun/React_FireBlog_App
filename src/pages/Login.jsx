@@ -7,6 +7,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
 import {
+  onAuthStateChanged,
   sendPasswordResetEmail,
   signInWithEmailAndPassword,
   signInWithPopup,
@@ -14,10 +15,18 @@ import {
 import { auth } from "../helpers/firebase";
 import { GoogleAuthProvider } from "firebase/auth";
 
-
-
-
-
+//? AuthContext sayfasindan burada ki userObserver cagriliyor
+//? login ise navbarda ki butonlar profil vs oluyor.Login degil ise login ve register butonlari görünüyor.
+//? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu
+export const userObserver = (setCurrentUser) => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      setCurrentUser(user);
+    } else {
+      setCurrentUser(false);
+    }
+  });
+};
 
 const Login = () => {
   const [info, setInfo] = useState({
@@ -40,7 +49,7 @@ const Login = () => {
   };
 
   //! Login islemi
- const signIn = async (email, password, navigate) => {
+  const signIn = async (email, password, navigate) => {
     try {
       let userCredential = await signInWithEmailAndPassword(
         auth,

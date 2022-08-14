@@ -1,38 +1,41 @@
 import React, { useState } from "react";
+import { initializeApp } from "firebase/app";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
-import { Avatar, Paper, TextField, Typography } from "@mui/material";
+import { Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { getDatabase, ref, set, push } from "firebase/database";
-import { firebase,auth } from "../helpers/firebase";
+import { firebase, auth } from "../helpers/firebase";
+import { getAuth } from "firebase/auth";
 const NewBlog = () => {
-
-
   const [title, setTitle] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [content, setContent] = useState("");
-
 
   const create = (e) => {
     e.preventDefault();
     userData(title, imgUrl, content);
   };
 
-    function userData(title, imgUrl, content) {
-      const database = getDatabase();
-      const userRef = ref(database, "newBlog/");
-      const NewUserRef = push(userRef);
-      set(NewUserRef, {
-        title: title,
-        imgUrl: imgUrl,
-        content: content,
-      });
-      setTitle("")
-      setImgUrl("")
-      setContent("")
-      console.log(userRef);
-    }
- 
+  function userData(title, imgUrl, content) {
+    const database = getDatabase();
+    const userRef = ref(database, "NewBlog/");
+    const NewUserRef = push(userRef);
+    set(NewUserRef, {
+      title: title,
+      imgUrl: imgUrl,
+      content: content,
+    });
+
+    setContent("");
+    setImgUrl("");
+    setTitle("");
+  }
+
+  console.log(title);
+  console.log(imgUrl);
+  console.log(content);
+
   return (
     <Paper
       style={{
@@ -68,9 +71,10 @@ const NewBlog = () => {
               fontFamily: "Girassol",
               color: "#1f6582",
               display: "flex",
+              variant: "h2",
             }}
           >
-            <h2 className="NewBlog">── New</h2> <h2>Blog──</h2>
+            {/* <h2 className="NewBlog">── New</h2> <h2>Blog──</h2> */}
           </Typography>
           <Stack spacing={2} width={350} height={400}>
             <TextField
@@ -94,7 +98,7 @@ const NewBlog = () => {
               type="text-area"
               multiline
               rows={8}
-              onChange={(e)=>setContent(e.target.value)}
+              onChange={(e) => setContent(e.target.value)}
             />
 
             <Button onClick={create} variant="contained" type="submit">

@@ -1,5 +1,5 @@
 import React, { createContext, useEffect, useState } from "react";
-import { userObserver } from "../components/Navbar";
+import { userObserver } from "../pages/Login";
 
 //! ilk olarak burada createContext olusturduk.
 //! Sonrasinda AuthContextProvider ile useState tanimladik
@@ -15,9 +15,13 @@ export const AuthContext = createContext();
 const AuthContextProvider = ({ children }) => {
   const [currentUser, setCurrentUser] = useState(false);
 
+
+  
+  //! burada Login sayfasinda ki userObserver icinde setCurrentUser ile cagriliyor.
   useEffect(() => {
-  setCurrentUser(JSON.parse(sessionStorage.getItem("user")))
-},[])
+    // setCurrentUser(JSON.parse(sessionStorage.getItem("user")))
+    userObserver(setCurrentUser);
+  }, []);
 
   return (
     <AuthContext.Provider value={{ currentUser }}>
