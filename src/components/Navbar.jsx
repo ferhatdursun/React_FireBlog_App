@@ -21,8 +21,8 @@ import { toastWarnNotify, toastDangerNotify } from "../helpers/toastNotify";
 const Navbar = () => {
   const navigate = useNavigate();
   // const { currentUser } = useContext(AuthContext);
-  //  const currentUser = { displayName: "ferhat" };
-    const currentUser = false;
+   const currentUser = { displayName: "ferhat" };
+    // const currentUser = false;
 
 //! Logout 
   
