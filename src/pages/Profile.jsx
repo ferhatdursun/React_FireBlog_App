@@ -1,19 +1,13 @@
 import * as React from "react";
-import Box from "@mui/material/Box";
-import TextField from "@mui/material/TextField";
 import { Paper, Typography } from "@mui/material";
 import { Stack } from "@mui/material";
 import { Avatar } from "@mui/material";
 import newblog from "../assets/blok.png";
 import Button from "@mui/material/Button";
-// import kendim from "../assets/kendim.jpeg";
-import { useState, useEffect, useContext } from "react";
+import { useContext } from "react";
 import { AuthContext } from "../app-router/AuthContext";
 
 export default function Profile() {
-  const [user, setUser] = useState([]);
-  const [name, setName] = useState([]);
-
   const { currentUser } = useContext(AuthContext);
 
   return (
@@ -51,12 +45,18 @@ export default function Profile() {
               marginTop: "1rem",
             }}
           />
-          <Typography style={{ fontFamily: "Girassol", color: "#046582", fontSize:"0.7rem" }}>
+          <Typography
+            style={{
+              fontFamily: "Girassol",
+              color: "#046582",
+              fontSize: "0.7rem",
+            }}
+          >
             <h1>── My Profile ──</h1>
           </Typography>
           <Stack width={400} height={370} spacing={5}>
             <h2 style={{ fontFamily: "Girassol" }}>
-              Name:{" "}
+              Name:
               <p>
                 <p style={{ color: "#046582" }}>{currentUser?.displayName}</p>
               </p>
