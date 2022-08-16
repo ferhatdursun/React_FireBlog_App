@@ -171,12 +171,14 @@ const Login = () => {
             </Button>
           </Stack>
           <Button
-            // type="button"
+            type="button"
             sx={{
               fontFamily: "Arial, Helvetica, sans-serif",
-              fontSize: "large", width: "22rem", marginTop:"1rem", height:"2.2rem",
+              fontSize: "large",
+              width: "22rem",
+              marginTop: "1rem",
+              height: "2.2rem",
             }}
-            
             variant="outlined"
             onClick={() => signUpProvider(navigate)}
           >
