@@ -7,25 +7,16 @@ import { auth } from "../helpers/firebase";
 import { AuthContext } from "../app-router/AuthContext";
 import { toastWarnNotify, toastDangerNotify } from "../helpers/toastNotify";
 
-// export const userObserver = (setCurrentUser) => {
-//   onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       setCurrentUser(user);
-//     } else {
-//       setCurrentUser(false);
-//     }
-//   });
-// };
-
-
 const Navbar = () => {
   const navigate = useNavigate();
-    const { currentUser } = useContext(AuthContext);
-  //  const currentUser = { displayName: "ferhat" };
-    // const currentUser = false;
 
-//! Logout 
-  
+  //! useContext ile AuthContext de ki currentUser'i yakaliyoruz.
+  const { currentUser } = useContext(AuthContext);
+  //  const currentUser = { displayName: "ferhat" };
+  // const currentUser = false;
+
+  //! Logout
+
   const logOut = () => {
     try {
       signOut(auth).then((res) => {
@@ -36,7 +27,7 @@ const Navbar = () => {
       toastDangerNotify("Error!");
       console.log(err.message);
     }
-  }
+  };
 
   return (
     <div className="Navbar">
@@ -60,7 +51,6 @@ const Navbar = () => {
       <div>
         {currentUser ? (
           <>
-            
             <button
               className="Profile"
               onClick={() => {
@@ -77,7 +67,9 @@ const Navbar = () => {
             >
               New
             </button>
-            <button className="NLogout" onClick={logOut}>Logout</button>
+            <button className="NLogout" onClick={logOut}>
+              Logout
+            </button>
           </>
         ) : (
           <>

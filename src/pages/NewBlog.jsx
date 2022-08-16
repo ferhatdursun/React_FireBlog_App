@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { initializeApp } from "firebase/app";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
@@ -7,34 +7,44 @@ import { Stack } from "@mui/system";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { firebase, auth } from "../helpers/firebase";
 import { getAuth } from "firebase/auth";
+import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
+import { AuthContext } from "../app-router/AuthContext";
+
 const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [content, setContent] = useState("");
+  const { currentUser } = useContext(AuthContext);
 
+
+  
+  //! Yeni Blog yazisi ekleme
   const create = (e) => {
     e.preventDefault();
     userData(title, imgUrl, content);
   };
+  const date = new Date().toDateString()
+  function userData() {
+    try {
+      const database = getDatabase();
+      const userRef = ref(database, "NewBlog/");
+      const NewUserRef = push(userRef);
+      set(NewUserRef, {
+        title: title,
+        imgUrl: imgUrl,
+        content: content,
+        author: currentUser.email,
+        date:date,
+      });
 
-  function userData(title, imgUrl, content) {
-    const database = getDatabase();
-    const userRef = ref(database, "NewBlog/");
-    const NewUserRef = push(userRef);
-    set(NewUserRef, {
-      title: title,
-      imgUrl: imgUrl,
-      content: content,
-    });
-
-    setContent("");
-    setImgUrl("");
-    setTitle("");
+      toastSuccessNotify("Added to Dasboard");
+      setTitle("");
+      setImgUrl("");
+      setContent("");
+    } catch (err) {
+      toastDangerNotify(err.message);
+    }
   }
-
-  console.log(title);
-  console.log(imgUrl);
-  console.log(content);
 
   return (
     <Paper
@@ -82,6 +92,7 @@ const NewBlog = () => {
               label="Title"
               variant="outlined"
               type="email"
+              value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
             <TextField
@@ -89,6 +100,7 @@ const NewBlog = () => {
               label="Image URL*"
               variant="outlined"
               type="email"
+              value={imgUrl}
               onChange={(e) => setImgUrl(e.target.value)}
             />
             <TextField
@@ -98,6 +110,7 @@ const NewBlog = () => {
               type="text-area"
               multiline
               rows={8}
+              value={content}
               onChange={(e) => setContent(e.target.value)}
             />
 

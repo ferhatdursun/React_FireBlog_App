@@ -40,7 +40,7 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(email, password, navigate);
-    console.log(email.at, password);
+    
   };
 
   //! inputlarin icerisinde ki girdileri yakalamak icin
