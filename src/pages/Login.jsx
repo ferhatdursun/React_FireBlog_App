@@ -106,11 +106,10 @@ const Login = () => {
       >
         <Stack
           marginBottom={20}
-          marginTop={5}
+          marginTop={14}
           bgcolor="white"
           width={400}
-          height="73vh"
-          
+          height="80vh"
           textAlign="center"
           justifyContent="center"
           alignItems="center"
@@ -129,7 +128,13 @@ const Login = () => {
             alt=""
           />
 
-          <Typography sx={{ fontFamily: "Girassol", color: "#1f6582",fontSize:"0.9rem" }}>
+          <Typography
+            sx={{
+              fontFamily: "Girassol",
+              color: "#1f6582",
+              fontSize: "0.9rem",
+            }}
+          >
             <h1>── Login ──</h1>
           </Typography>
           <Stack spacing={2} width={350}>
@@ -164,51 +169,26 @@ const Login = () => {
             <Button onClick={handleSubmit} variant="contained">
               Login
             </Button>
-            <Button
-              sx={{
-                fontFamily: "Arial, Helvetica, sans-serif",
-                fontSize: "large",
-              }}
-              variant="outlined"
-              onClick={() => signUpProvider(navigate)}
-            >
-              <span>WITH</span>
-              <span className="cizgi">--</span>
-              <span>G</span> <span className="kirmizi">o</span>{" "}
-              <span className="turuncu">o</span> <span>g</span>{" "}
-              <span className="yesil">l</span>{" "}
-              <span className="kirmizi">e</span>{" "}
-            </Button>
           </Stack>
+          <Button
+            // type="button"
+            sx={{
+              fontFamily: "Arial, Helvetica, sans-serif",
+              fontSize: "large", width: "22rem", marginTop:"1rem", height:"2.2rem",
+            }}
+            
+            variant="outlined"
+            onClick={() => signUpProvider(navigate)}
+          >
+            <span>WITH</span>
+            <span className="cizgi">--</span>
+            <span>G</span> <span className="kirmizi">o</span>{" "}
+            <span className="turuncu">o</span> <span>g</span>{" "}
+            <span className="yesil">l</span> <span className="kirmizi">e</span>{" "}
+          </Button>
         </Stack>
       </Stack>
     </Paper>
-
-    /* <div className="loginContainer">
-      <div>
-        <img src={Block} alt="" />
-      </div>
-
-       <div className="Loginyazi">
-        <i>
-          <hr className="block" width="30px" />
-        </i>
-        <i>LOGIN</i>
-        <i>
-          <hr className="block" width="30px" />
-        </i>
-      </div>
-
-      <form action="" className="form">
-        <input type="email" value="" placeholder="Email" />
-        <input type="password" value="" placeholder="Password" />
-
-        <Button variant="contained">LOGIN</Button>
-
-        <Button variant="contained">WITH GOOGLE</Button>
-      </form>
-
-    </div> */
   );
 };
 
