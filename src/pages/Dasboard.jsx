@@ -24,7 +24,7 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const Dasboard = () => {
   const navigate = useNavigate();
   const { currentUser, gelenVeri } = useContext(AuthContext); //! Bunun ile AuthContext de bulunan user datalarini buraya cektik ve asagida i.author olarak yazdirdik.
-  console.log("log;currentUserSon", currentUser.email);
+  console.log("currentUserSon", currentUser);
   // ! useEffect icerisinde sonsuz döngüye girmemesi icin kapatmasinin yanina  koymamiz gerekiyor.
 
   return (
@@ -41,8 +41,8 @@ const Dasboard = () => {
                   <Card
                     sx={{
                       Width: 245,
-                      Height: 550,
-                      width: 550,
+                      Height: 450,
+                      width: 480,
                       margin: 2,
                     }}
                   >
@@ -62,10 +62,14 @@ const Dasboard = () => {
                       />
 
                       <CardContent>
-                        <Typography variant="h4">{i.title}</Typography>
+                        <Typography variant="h4">{i.titlex}</Typography>
+                        <Typography variant="h4" color="text.secondary">
+                          {i.title}
+                        </Typography>
                         <Typography variant="h7">
                           <p> {i.date}</p>
                         </Typography>
+
                         <Typography variant="h7" color="text.secondary">
                           {i.content}
                         </Typography>

@@ -13,14 +13,20 @@ import Button from "@mui/material/Button";
 import { getDatabase, remove, ref } from "firebase/database";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
 import AddCommentIcon from "@mui/icons-material/AddComment";
+import { Stack } from "@mui/system";
 const Details = () => {
   const navigate = useNavigate();
 
   //! Verileri useParams ile useContext araciligi ile buraya cektik.
-  const {currentUser, gelenVeri } = useContext(AuthContext);
+  const { currentUser, gelenVeri } = useContext(AuthContext);
   const { id } = useParams();
   // console.log("Probs", gelenVeri);
-// console.log("currentUserEmail",currentUser.email)
+  // console.log("currentUserEmail",currentUser.email)
+
+  const gelenBlog = gelenVeri?.filter((item) => item.i === id);
+  console.log(gelenVeri, id);
+  console.log("GelenBlog;", gelenBlog);
+
   //! Card Silme
   const DeleteData = (id) => {
     try {
@@ -38,50 +44,52 @@ const Details = () => {
       <div>
         <h1 className="Dasboard">──── Details ────</h1>
       </div>
-      <Grid container justifyContent="center">
-        {gelenVeri.map((i) =>
-          i.i == id ? (
-            <Card>
-              <Card justifyContent="center">
-                <CardMedia
-                  component="img"
-                  height="354"
-                  width="300"
-                  src="Foto"
-                  image={i.imgUrl}
-                  alt="Paella dish"
-                  //
-                />
-                <Typography variant="h5" m={2}>
-                  {i.title}
-                </Typography>
-                <Typography variant="h7" m={2}>
-                  {i.content}
-                </Typography>
+      <Stack justifyContent="center" alignItems="center">
+        <Stack width="900px">
+          <Card>
+            <Card justifyContent="center">
+              <CardMedia
+                component="img"
+                height="354"
+                width="250"
+                src="Foto"
+                image={gelenBlog[0].imgUrl}
+                alt="Paella dish"
+                //
+              />
+              <Typography variant="h5" m={2}>
+                {gelenBlog[0].title}
+              </Typography>
+              <Typography variant="h7" m={2}>
+                {gelenBlog[0].date}
+              </Typography>
+              <br />
+              <br />
+              <Typography variant="h7" m={2}>
+                {gelenBlog[0].content}
+              </Typography>
 
-                <Typography variant="h6" m={2}>
-                  <AccountCircleIcon />
-                  {i.author}
+              <Typography variant="h6" m={2}>
+                <AccountCircleIcon />
+                {gelenBlog[0].author}
+              </Typography>
 
-                </Typography>
-
-                <CardActions disableSpacing>
-                  <IconButton aria-label="add to favorites">
-                    <FavoriteIcon sx={{ color: "red" }} />
-                  </IconButton>
-                  <IconButton aria-label="share">
-                    <AddCommentIcon />
-                  </IconButton>
-                </CardActions>
-              </Card>
-              {currentUser.email === i.author  ?(
+              <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                  <FavoriteIcon sx={{ color: "red" }} />
+                </IconButton>
+                <IconButton aria-label="share">
+                  <AddCommentIcon />
+                </IconButton>
+              </CardActions>
+            </Card>
+            {currentUser.email === gelenBlog[0].author ? (
               <Grid container justifyContent="center" margin={2}>
-                
                 <Button
                   variant="contained"
                   disableElevation
                   onClick={(e) => {
-                    navigate(`/UpdateBlog/${i.i}`);
+                    navigate(`/UpdateBlog/${gelenBlog[0].i}`);
                   }}
                 >
                   UPDATE
@@ -90,18 +98,16 @@ const Details = () => {
                   variant="contained"
                   color="error"
                   onClick={() => {
-                    DeleteData(i.i);
+                    DeleteData(gelenBlog[0].i);
                   }}
                 >
                   DELETE
                 </Button>
-            </Grid>
-            ): null}
-            </Card>
-          ) : null
-        )}
-        <Grid container justifyContent="center" margin={4}></Grid>
-      </Grid>
+              </Grid>
+            ) : null}
+          </Card>
+        </Stack>
+      </Stack>
     </div>
   );
 };

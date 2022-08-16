@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { initializeApp } from "firebase/app";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
-import { Paper, TextField, Typography } from "@mui/material";
+import { Avatar, Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { firebase, auth } from "../helpers/firebase";
@@ -16,14 +16,12 @@ const NewBlog = () => {
   const [content, setContent] = useState("");
   const { currentUser } = useContext(AuthContext);
 
-
-  
   //! Yeni Blog yazisi ekleme
   const create = (e) => {
     e.preventDefault();
     userData(title, imgUrl, content);
   };
-  const date = new Date().toDateString()
+  const date = new Date().toDateString();
   function userData() {
     try {
       const database = getDatabase();
@@ -34,7 +32,7 @@ const NewBlog = () => {
         imgUrl: imgUrl,
         content: content,
         author: currentUser.email,
-        date:date,
+        date: date,
       });
 
       toastSuccessNotify("Added to Dasboard");
@@ -64,17 +62,27 @@ const NewBlog = () => {
       >
         <Stack
           marginBottom={20}
-          marginTop={5}
+          marginTop={10}
           bgcolor="white"
           width={500}
-          height={750}
+          height={600}
           textAlign="center"
           justifyContent="center"
           alignItems="center"
           padding={3}
           borderRadius={2}
         >
-          <img src={Block} alt="" height={100} width={150} />
+          <Avatar
+            src={Block}
+            alt="NewBlogFoto"
+            style={{
+              width: "220px",
+              height: "220px",
+              padding: "2rem",
+              background: "#046582",
+              marginTop: "1rem",
+            }}
+          />
 
           <Typography
             sx={{
@@ -109,7 +117,7 @@ const NewBlog = () => {
               variant="outlined"
               type="text-area"
               multiline
-              rows={8}
+              rows={4}
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />

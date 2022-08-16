@@ -22,7 +22,7 @@ const AuthContextProvider = ({ children }) => {
   const [gelenVeri, setGelenVeri] = useState([]);
   //! Details sayfasina verilerin aktarilmasi
   //! Details sayfasindan update butonuna tiklandiktan sonra verilerin UpdateBlog sayfasina aktarilmasi.
-
+console.log(currentUser);
   const GelenVeriler = () => {
     const db = getDatabase();
     const starCountRef = ref(db, "NewBlog");
@@ -34,7 +34,6 @@ const AuthContextProvider = ({ children }) => {
         userArray.push({ i, ...data[i] });
       }
       setGelenVeri(userArray);
-      
 
       console.log("userArry", userArray);
       console.log("gelenVeri", gelenVeri);

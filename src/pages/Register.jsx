@@ -2,21 +2,27 @@ import React, { useState } from "react";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
 import { Avatar, Paper, TextField, Typography } from "@mui/material";
-import { Stack } from "@mui/system";
+import { display, Stack } from "@mui/system";
 import { createUser } from "../helpers/firebase";
 import { getDatabase, ref, set, push, update } from "firebase/database";
 import { firebase, auth } from "../helpers/firebase";
 import { create } from "@mui/material/styles/createTransitions";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  updateProfile,
+  updateCurrentUser,
+} from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
+
 const Register = () => {
   // const [firstName, setFirstName] = useState("");
   // const [lastName, setLastName] = useState("");
   // const [email, setEmail] = useState("");
   // const [password, setPassword] = useState("");
   // console.log("2", password);
-  const navigate = useNavigate();
+
   const [info, setInfo] = useState({
     firstName: "",
     lastName: "",
@@ -24,28 +30,36 @@ const Register = () => {
     password: "",
   });
 
+  const navigate = useNavigate();
   const { firstName, lastName, email, password } = info;
 
   //? YENI KULLANICI OLUSTURMA
-  const createUser = async (email, password) => {
+  const createUser = async (email, password, navigate, displayName) => {
+    
     try {
       let userCredential = await createUserWithEmailAndPassword(
         auth,
         email,
-        password
+        password,
+        displayName
       );
-      toastSuccessNotify("erfolgreich")
-      navigate("/Login");
+      await updateProfile(auth.currentUser, {
+        displayName: displayName,
+      });
+      toastSuccessNotify("erfolgreich");
+      navigate("/");
       console.log(userCredential);
     } catch (err) {
-      toastDangerNotify("Error!")
+      toastDangerNotify("Error!");
       console.log(err.message);
     }
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    createUser(email, password,navigate);
+    const displayName = `${firstName} ${lastName}`;
+    createUser(email, password, navigate, displayName);
     console.log(email, password);
+    console.log("DisplayName", displayName);
   };
   const handeleChange = (e) => {
     setInfo({ ...info, [e.target.name]: e.target.value });
@@ -60,7 +74,6 @@ const Register = () => {
         backgroundSize: "cover",
       }}
     >
-      
       <Stack
         textAlign="center"
         justifyContent="center"
@@ -90,7 +103,7 @@ const Register = () => {
               id="outlined-basic"
               name="firstName"
               required
-              label="First Name"
+              label="firstName"
               variant="outlined"
               type="email"
               onChange={handeleChange}
@@ -99,7 +112,7 @@ const Register = () => {
               id="outlined-basic"
               name="lastName"
               required
-              label="Last Name"
+              label="lastName"
               variant="outlined"
               type="email"
               onChange={handeleChange}

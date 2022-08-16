@@ -1,6 +1,6 @@
 import React from "react";
 import Button from "@mui/material/Button";
-import { Paper, TextField, Typography } from "@mui/material";
+import { Avatar, Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import Block from "../assets/blok.png";
 import { useEffect, useState, useContext } from "react";
@@ -11,16 +11,27 @@ import { getDatabase, onValue, ref, update } from "firebase/database";
 
 const UpdateBlog = () => {
   const navigate = useNavigate();
-  const [title, setTitle] = useState();
-  const [imgUrl, setImgUrl] = useState();
-  const [content, setContent] = useState();
-
-  //! Details sayfasinda ki verileri buraya alabilmek icin yine AuthContext.js sayfasinda ki setGelenVeri ile gelenVerinin icine gömülen datalari kullandik.
   const { gelenVeri, currentUser } = useContext(AuthContext);
   const { id } = useParams();
+  const [title, setTitle] = useState(gelenVeri[id]?.title);
+  const [imgUrl, setImgUrl] = useState();
+  const [content, setContent] = useState();
+  console.log("UpdateTitle", gelenVeri[id], id);
+  //! Details sayfasinda ki verileri buraya alabilmek icin yine AuthContext.js sayfasinda ki setGelenVeri ile gelenVerinin icine gömülen datalari kullandik.
+
+  useEffect(() => {
+    gelenVeri.map((card) =>
+      card.i === id
+        ? (setTitle(card.title),
+          setImgUrl(card.imgUrl),
+          setContent(card.content))
+        : null
+    );
+  }, []);
+
   const date = new Date().toDateString();
 
-  console.log("UpdateBlogTitle", title);
+  console.log("UpdateBlogGelenVeri", gelenVeri);
 
   //! Burada yorumda olan satirlar update islemi icin kullanilabilir. Ama bu satirlari AutContext sayfasina tasidik. Ve burada useContext ile bu satirlara ulasiyoruz.
   // useEffect(() => {
@@ -86,14 +97,24 @@ const UpdateBlog = () => {
                   marginTop={5}
                   bgcolor="white"
                   width={500}
-                  height={750}
+                  height={650}
                   textAlign="center"
                   justifyContent="center"
                   alignItems="center"
                   padding={3}
                   borderRadius={2}
                 >
-                  <img src={Block} alt="" height={100} width={150} />
+                  <Avatar
+                    src={Block}
+                    style={{
+                      width: "220px",
+                      height: "220px",
+                      padding: "2rem",
+                      background: "#046582",
+                      marginTop: "1rem",
+                    }}
+                    alt="UpdateBlog"
+                  />
 
                   <Typography
                     sx={{
@@ -111,7 +132,7 @@ const UpdateBlog = () => {
                       label="Title"
                       variant="outlined"
                       type="email"
-                      value={title ? title : setTitle(i.title)}
+                      value={title}
                       onChange={(e) => setTitle(e.target.value)}
                     />
 
@@ -119,8 +140,10 @@ const UpdateBlog = () => {
                       id="outlined-basic"
                       label="Image URL*"
                       variant="outlined"
+                      multiline
+                      rows={1}
                       type="email"
-                      value={imgUrl ? imgUrl : setImgUrl(i.imgUrl)}
+                      value={imgUrl}
                       onChange={(e) => setImgUrl(e.target.value)}
                     />
                     <TextField
@@ -129,8 +152,8 @@ const UpdateBlog = () => {
                       variant="outlined"
                       type="text-area"
                       multiline
-                      rows={8}
-                      value={content ? content : setContent(i.content)}
+                      rows={4}
+                      value={content}
                       onChange={(e) => setContent(e.target.value)}
                     />
 
