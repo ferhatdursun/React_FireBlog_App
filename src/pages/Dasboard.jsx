@@ -1,26 +1,16 @@
-import { getDatabase, onValue, ref } from "firebase/database";
-import React, { useEffect, useState, useContext } from "react";
+import React, { useContext } from "react";
 import Card from "@mui/material/Card";
-import CardHeader from "@mui/material/CardHeader";
 import CardMedia from "@mui/material/CardMedia";
 import CardContent from "@mui/material/CardContent";
 import CardActions from "@mui/material/CardActions";
-import Collapse from "@mui/material/Collapse";
-import Avatar from "@mui/material/Avatar";
 import IconButton from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import { display, Stack } from "@mui/system";
-import { red } from "@mui/material/colors";
-import MoreVertIcon from "@mui/icons-material/MoreVert";
 import { Grid } from "@mui/material";
 import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../app-router/AuthContext";
-// import { Details } from "../pages/Details";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-
+import AddCommentIcon from "@mui/icons-material/AddComment";
 const Dasboard = () => {
   const navigate = useNavigate();
   const { currentUser, gelenVeri } = useContext(AuthContext); //! Bunun ile AuthContext de bulunan user datalarini buraya cektik ve asagida i.author olarak yazdirdik.
@@ -84,7 +74,7 @@ const Dasboard = () => {
                         <FavoriteIcon sx={{ color: "red" }} />
                       </IconButton>
                       <IconButton aria-label="share">
-                        <ShareIcon />
+                        <AddCommentIcon />
                       </IconButton>
                     </CardActions>
                   </Card>

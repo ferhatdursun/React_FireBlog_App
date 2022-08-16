@@ -1,5 +1,6 @@
 import React, { useContext } from "react";
 import FotoClarusway from "../assets/cw.jpeg";
+import Fd from "../assets/fd.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
@@ -23,6 +24,7 @@ const Navbar = () => {
         console.log(res);
         toastWarnNotify("Logged out successfully!");
       });
+      navigate("/");
     } catch (err) {
       toastDangerNotify("Error!");
       console.log(err.message);
@@ -31,12 +33,8 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <a
-        href="https://www.clarusway.de"
-        target="_blank"
-        className="claruswaynavbar"
-      >
-        <img src={FotoClarusway} alt="" width="35px" />
+      <a href="https://github.com/ferhatdursun" target="_blank">
+        <img src={Fd} alt="" width="85px" className="claruswaynavbar" />
       </a>
       <div className="navbarEDEN" onClick={() => navigate("/")}>
         <i>

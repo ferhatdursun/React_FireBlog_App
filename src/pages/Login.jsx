@@ -1,7 +1,7 @@
 import React from "react";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
-import { Paper, TextField, Typography } from "@mui/material";
+import { Avatar, Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
@@ -40,7 +40,6 @@ const Login = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     signIn(email, password, navigate);
-    
   };
 
   //! inputlarin icerisinde ki girdileri yakalamak icin
@@ -110,17 +109,28 @@ const Login = () => {
           marginTop={5}
           bgcolor="white"
           width={400}
-          height={550}
+          height="73vh"
+          
           textAlign="center"
           justifyContent="center"
           alignItems="center"
           padding={3}
           borderRadius={2}
         >
-          <img src={Block} alt="" height={150} width={150} />
+          <Avatar
+            style={{
+              width: "132px",
+              height: "132px",
+              padding: "2rem",
+              background: "#046582",
+              marginTop: "1rem",
+            }}
+            src={Block}
+            alt=""
+          />
 
-          <Typography sx={{ fontFamily: "Girassol", color: "#1f6582" }}>
-            <h3>── Login ──</h3>
+          <Typography sx={{ fontFamily: "Girassol", color: "#1f6582",fontSize:"0.9rem" }}>
+            <h1>── Login ──</h1>
           </Typography>
           <Stack spacing={2} width={350}>
             <TextField
@@ -129,6 +139,7 @@ const Login = () => {
               variant="outlined"
               type="email"
               name="email"
+              size="small"
               required
               onChange={handleChange}
             />
@@ -138,6 +149,7 @@ const Login = () => {
               variant="outlined"
               type="password"
               name="password"
+              size="small"
               required
               onChange={handleChange}
             />

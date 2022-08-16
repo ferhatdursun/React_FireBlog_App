@@ -21,15 +21,22 @@ export default function Profile() {
       elevation={0}
       style={{ background: `url(https://picsum.photos/1600/900)` }}
     >
-      <Stack direction="column" justifyContent="center" alignItems="center">
+      <Stack
+        height="100vh"
+        width="100vw"
+        direction="column"
+        justifyContent="center"
+        alignItems="center"
+      >
         <Stack
           direction="column"
           justifyContent="center"
           alignItems="center"
-          spacing={3}
+          spacing={2}
           marginTop={2}
           bgcolor="white"
           width={500}
+          height="83vh"
           boxShadow={"10px 5px 5px gray"}
           borderRadius={"20px"}
         >
@@ -37,29 +44,29 @@ export default function Profile() {
             alt="Remy Sharp"
             src={newblog}
             style={{
-              width: "220px",
-              height: "220px",
+              width: "120px",
+              height: "120px",
               padding: "2rem",
               background: "#046582",
               marginTop: "1rem",
             }}
           />
-          <Typography style={{ fontFamily: "Girassol", color: "#046582" }}>
+          <Typography style={{ fontFamily: "Girassol", color: "#046582", fontSize:"0.7rem" }}>
             <h1>── My Profile ──</h1>
           </Typography>
           <Stack width={400} height={370} spacing={5}>
-            <h5 style={{}}>
+            <h2 style={{ fontFamily: "Girassol" }}>
               Name:{" "}
               <p>
-                <p>{currentUser?.displayName}</p>
-              </p>{" "}
-            </h5>
-            <h5>
+                <p style={{ color: "#046582" }}>{currentUser?.displayName}</p>
+              </p>
+            </h2>
+            <h2>
               E-Mail:
               <p>
-                <p>{currentUser?.email}</p>
+                <p style={{ color: "#046582" }}>{currentUser?.email}</p>
               </p>
-            </h5>
+            </h2>
           </Stack>
         </Stack>
       </Stack>

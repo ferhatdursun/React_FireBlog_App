@@ -64,8 +64,8 @@ const NewBlog = () => {
           marginBottom={20}
           marginTop={10}
           bgcolor="white"
-          width={500}
-          height={600}
+          width={400}
+          height={520}
           textAlign="center"
           justifyContent="center"
           alignItems="center"
@@ -76,11 +76,12 @@ const NewBlog = () => {
             src={Block}
             alt="NewBlogFoto"
             style={{
-              width: "220px",
-              height: "220px",
+              width: "140px",
+              height: "140px",
               padding: "2rem",
               background: "#046582",
               marginTop: "1rem",
+              marginBottom:"1rem",
             }}
           />
 
