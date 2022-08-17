@@ -107,8 +107,8 @@ const Login = () => {
         <Stack
           marginTop={2}
           bgcolor="white"
-          width={400}
-          height={550}
+          width={450}
+          height={570}
           textAlign="center"
           justifyContent="center"
           alignItems="center"
