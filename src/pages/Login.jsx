@@ -105,11 +105,10 @@ const Login = () => {
         height="100vh"
       >
         <Stack
-          marginBottom={20}
-          marginTop={14}
+          marginTop={2}
           bgcolor="white"
           width={400}
-          height="80vh"
+          height={550}
           textAlign="center"
           justifyContent="center"
           alignItems="center"

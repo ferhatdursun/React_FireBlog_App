@@ -35,7 +35,6 @@ const Register = () => {
 
   //? YENI KULLANICI OLUSTURMA
   const createUser = async (email, password, navigate, displayName) => {
-    
     try {
       let userCredential = await createUserWithEmailAndPassword(
         auth,
@@ -83,27 +82,38 @@ const Register = () => {
       >
         <Stack
           marginBottom={20}
-          marginTop={5}
+          marginTop={10}
           bgcolor="white"
           width={400}
-          height={550}
+          height={570}
           textAlign="center"
           justifyContent="center"
           alignItems="center"
           padding={3}
           borderRadius={2}
         >
-          <img src={Block} alt="" height={150} width={150} />
+          <Avatar
+            alt="Remy Sharp"
+            src={Block}
+            style={{
+              width: "120px",
+              height: "120px",
+              padding: "2rem",
+              background: "#046582",
+              marginTop: "1rem",
+            }}
+          />
 
           <Typography sx={{ fontFamily: "Girassol", color: "#1f6582" }}>
-            <h3>── Register ──</h3>
+            <h2>── Register ──</h2>
           </Typography>
           <Stack spacing={2} width={350}>
             <TextField
               id="outlined-basic"
               name="firstName"
               required
-              label="firstName"
+              label="FirstName"
+              multiline
               variant="outlined"
               type="email"
               onChange={handeleChange}
@@ -112,7 +122,7 @@ const Register = () => {
               id="outlined-basic"
               name="lastName"
               required
-              label="lastName"
+              label="LastName"
               variant="outlined"
               type="email"
               onChange={handeleChange}

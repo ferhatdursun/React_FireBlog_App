@@ -74,13 +74,36 @@ const Details = () => {
                 {gelenBlog[0].author}
               </Typography>
 
-              <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                  <FavoriteIcon sx={{ color: "red" }} />
-                </IconButton>
-                <IconButton aria-label="share">
-                  <AddCommentIcon />
-                </IconButton>
+              <CardActions
+                disableSpacing
+                style={{
+                  display: "flex",
+                  alignItems: "end",
+                  justifyContent: "space-between",
+                }}
+              >
+                <Stack style={{ display: "block" }}>
+                  <IconButton aria-label="add to favorites">
+                    <FavoriteIcon sx={{ color: "red" }} />
+                  </IconButton>
+                  <IconButton aria-label="share">
+                    <AddCommentIcon />
+                  </IconButton>
+                </Stack>
+                <Stack>
+                  <Button
+                    style={{
+                      backgroundColor: "Black",
+                    }}
+                    variant="contained"
+                    disableElevation
+                    onClick={(e) => {
+                      navigate(-1);
+                    }}
+                  >
+                    Back
+                  </Button>
+                </Stack>
               </CardActions>
             </Card>
             {currentUser.email === gelenBlog[0].author ? (

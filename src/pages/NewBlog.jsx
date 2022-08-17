@@ -9,13 +9,14 @@ import { firebase, auth } from "../helpers/firebase";
 import { getAuth } from "firebase/auth";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
 import { AuthContext } from "../app-router/AuthContext";
+import { useNavigate } from "react-router-dom";
 
 const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [content, setContent] = useState("");
   const { currentUser } = useContext(AuthContext);
-
+  const navigate = useNavigate();
   //! Yeni Blog yazisi ekleme
   const create = (e) => {
     e.preventDefault();
@@ -76,12 +77,12 @@ const NewBlog = () => {
             src={Block}
             alt="NewBlogFoto"
             style={{
-              width: "140px",
-              height: "140px",
+              width: "110px",
+              height: "110px",
               padding: "2rem",
               background: "#046582",
               marginTop: "1rem",
-              marginBottom:"1rem",
+              marginBottom: "1rem",
             }}
           />
 
@@ -101,6 +102,7 @@ const NewBlog = () => {
               label="Title"
               variant="outlined"
               type="email"
+              multiline
               value={title}
               onChange={(e) => setTitle(e.target.value)}
             />
@@ -118,13 +120,22 @@ const NewBlog = () => {
               variant="outlined"
               type="text-area"
               multiline
-              rows={4}
+              rows={3}
               value={content}
               onChange={(e) => setContent(e.target.value)}
             />
-
             <Button onClick={create} variant="contained" type="submit">
               SUBMIT
+            </Button>
+            <Button
+              onClick={(e) => {
+                navigate(-1);
+              }}
+              variant="contained"
+              type="submit"
+              style={{backgroundColor:"black"}}
+            >
+              Back
             </Button>
           </Stack>
         </Stack>

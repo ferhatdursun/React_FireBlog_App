@@ -6,9 +6,11 @@ import newblog from "../assets/blok.png";
 import Button from "@mui/material/Button";
 import { useContext } from "react";
 import { AuthContext } from "../app-router/AuthContext";
+import {useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const { currentUser } = useContext(AuthContext);
+const navigate = useNavigate();
 
   return (
     <Paper
@@ -32,7 +34,7 @@ export default function Profile() {
           width={500}
           height="83vh"
           // boxShadow={"10px 5px 5px gray"}
-           borderRadius={"20px"}
+          borderRadius={"20px"}
         >
           <Avatar
             alt="Remy Sharp"
@@ -64,7 +66,22 @@ export default function Profile() {
             <h2>
               E-Mail:
               <p>
-                <p style={{ color: "#046582" }}>{currentUser?.email}</p>
+                <p style={{ color: "#046582" }}>
+                  {currentUser?.email}{" "}
+                  <Button
+                    style={{
+                      backgroundColor: "Black",
+                      float: "right",
+                    }}
+                    variant="contained"
+                    disableElevation
+                    onClick={(e) => {
+                      navigate(-1);
+                    }}
+                  >
+                    Back
+                  </Button>
+                </p>
               </p>
             </h2>
           </Stack>

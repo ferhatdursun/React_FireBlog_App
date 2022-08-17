@@ -56,7 +56,7 @@ const Dasboard = () => {
 
                       <CardContent style={{backgroundColor:"#D9D9D9"}} >
                         <Typography
-                          variant="h6"
+                          variant="h5"
                           color="text.secondary"
                           style={{
                             height: "30px",
