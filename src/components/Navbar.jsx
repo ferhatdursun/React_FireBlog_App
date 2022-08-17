@@ -5,7 +5,11 @@ import { useNavigate } from "react-router-dom";
 import { onAuthStateChanged, signOut } from "firebase/auth";
 import { auth } from "../helpers/firebase";
 import { AuthContext } from "../app-router/AuthContext";
-import { toastWarnNotify, toastDangerNotify } from "../helpers/toastNotify";
+import {
+  toastWarnNotify,
+  toastDangerNotify,
+  toastSuccessNotify,
+} from "../helpers/toastNotify";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -21,7 +25,7 @@ const Navbar = () => {
     try {
       signOut(auth).then((res) => {
         console.log(res);
-        toastWarnNotify("Logged out successfully!");
+        toastSuccessNotify("Logged out successfully!");
       });
       navigate("/");
     } catch (err) {
