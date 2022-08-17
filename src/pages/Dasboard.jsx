@@ -72,6 +72,7 @@ const Dasboard = () => {
                         </Typography>
 
                         <Typography
+                          
                           variant="body1"
                           color="text.secondary"
                           style={{ height: "70px", overflow: "hidden" }}
@@ -80,7 +81,7 @@ const Dasboard = () => {
                         </Typography>
                       </CardContent>
                     </Grid>
-                    <Typography variant="h7" m={2}>
+                    <Typography variant="h7" m={2} >
                       <AccountCircleIcon /> {i.author}
                     </Typography>
 

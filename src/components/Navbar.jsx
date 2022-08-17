@@ -1,5 +1,4 @@
 import React, { useContext } from "react";
-import FotoClarusway from "../assets/cw.jpeg";
 import Fd from "../assets/fd.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
@@ -33,7 +32,7 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <a href="https://github.com/ferhatdursun" target="_blank">
+      <a href="https:www.linkedin.com/in/ferhat-dursun1" target="_blank">
         <img src={Fd} alt="" width="85px" className="claruswaynavbar" />
       </a>
       <div className="navbarEDEN" onClick={() => navigate("/")}>
