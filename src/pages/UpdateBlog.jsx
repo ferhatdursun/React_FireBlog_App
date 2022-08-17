@@ -94,30 +94,33 @@ const UpdateBlog = () => {
               >
                 <Stack
                   marginBottom={20}
-                  marginTop={5}
+                  marginTop={15}
                   bgcolor="white"
                   width={500}
-                  height={650}
+                  height={530}
                   textAlign="center"
                   justifyContent="center"
                   alignItems="center"
-                  padding={3}
+                  paddingBottom={4}
+                  paddingTop={4}
                   borderRadius={2}
                 >
                   <Avatar
                     src={Block}
                     style={{
-                      width: "220px",
-                      height: "220px",
+                      width: "120px",
+                      height: "120px",
                       padding: "2rem",
                       background: "#046582",
-                      marginTop: "1rem",
+                      marginTop: "0.5rem",
+                      marginBottom:"1rem",
                     }}
                     alt="UpdateBlog"
                   />
 
                   <Typography
                     sx={{
+                      
                       fontFamily: "Girassol",
                       color: "#1f6582",
                       display: "flex",
@@ -140,8 +143,6 @@ const UpdateBlog = () => {
                       id="outlined-basic"
                       label="Image URL*"
                       variant="outlined"
-                      multiline
-                      rows={1}
                       type="email"
                       value={imgUrl}
                       onChange={(e) => setImgUrl(e.target.value)}
@@ -163,6 +164,16 @@ const UpdateBlog = () => {
                       type="submit"
                     >
                       UPDATE
+                    </Button>
+                    <Button
+                      onClick={(e) => {
+                        navigate(-1);
+                      }}
+                      variant="contained"
+                      type="submit"
+                      style={{ backgroundColor: "black" }}
+                    >
+                      Back
                     </Button>
                   </Stack>
                 </Stack>
