@@ -11,6 +11,8 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../app-router/AuthContext";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCommentIcon from "@mui/icons-material/AddComment";
+import Fd from "../assets/fd.png";
+
 const Dasboard = () => {
   const navigate = useNavigate();
   const { currentUser, gelenVeri } = useContext(AuthContext); //! Bunun ile AuthContext de bulunan user datalarini buraya cektik ve asagida i.author olarak yazdirdik.
@@ -18,7 +20,7 @@ const Dasboard = () => {
   // ! useEffect icerisinde sonsuz döngüye girmemesi icin kapatmasinin yanina  koymamiz gerekiyor.
 
   return (
-    <div>
+    <div style={{ backgroundColor: "#F1E9E3" }}>
       <div>
         <h1 className="Dasboard">──── Dasboard ────</h1>
       </div>
@@ -27,11 +29,10 @@ const Dasboard = () => {
           {gelenVeri?.map((i, id) => {
             return (
               <div key={id}>
-                <Grid item>
+                <Grid item xs={10} md={6} lg={4} xl={2}>
                   <Card
                     sx={{
-                      Width: 245,
-                      Height: 450,
+                      maxHeight: 650,
                       width: 480,
                       margin: 2,
                     }}
@@ -53,14 +54,22 @@ const Dasboard = () => {
 
                       <CardContent>
                         <Typography variant="h4">{i.titlex}</Typography>
-                        <Typography variant="h4" color="text.secondary">
+                        <Typography
+                          variant="h6"
+                          color="text.secondary"
+                          style={{ height: "30px", overflow: "hidden" }}
+                        >
                           {i.title}
                         </Typography>
                         <Typography variant="h7">
                           <p> {i.date}</p>
                         </Typography>
 
-                        <Typography variant="h7" color="text.secondary">
+                        <Typography
+                          variant="body1"
+                          color="text.secondary"
+                          style={{ height: "70px", overflow: "hidden" }}
+                        >
                           {i.content}
                         </Typography>
                       </CardContent>

@@ -31,8 +31,8 @@ export default function Profile() {
           bgcolor="white"
           width={500}
           height="83vh"
-          boxShadow={"10px 5px 5px gray"}
-          borderRadius={"20px"}
+          // boxShadow={"10px 5px 5px gray"}
+           borderRadius={"20px"}
         >
           <Avatar
             alt="Remy Sharp"
