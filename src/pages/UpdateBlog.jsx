@@ -113,45 +113,45 @@ const UpdateBlog = () => {
                       padding: "2rem",
                       background: "#046582",
                       marginTop: "0.5rem",
-                      marginBottom:"1rem",
+                      marginBottom: "1rem",
                     }}
                     alt="UpdateBlog"
                   />
 
                   <Typography
                     sx={{
-                      
                       fontFamily: "Girassol",
                       color: "#1f6582",
                       display: "flex",
                       variant: "h2",
                     }}
-                  >
-                    {/* <h2 className="NewBlog">── New</h2> <h2>Blog──</h2> */}
-                  </Typography>
+                  ></Typography>
                   <Stack spacing={2} width={350} height={400}>
                     <TextField
                       id="outlined-basic"
                       label="Title"
                       variant="outlined"
                       type="email"
+                      required
                       value={title}
                       onChange={(e) => setTitle(e.target.value)}
                     />
 
                     <TextField
                       id="outlined-basic"
-                      label="Image URL*"
+                      label="Image URL"
                       variant="outlined"
                       type="email"
+                      required
                       value={imgUrl}
                       onChange={(e) => setImgUrl(e.target.value)}
                     />
                     <TextField
                       id="outlined-basic"
-                      label="Content*"
+                      label="Content"
                       variant="outlined"
                       type="text-area"
+                      required
                       multiline
                       rows={4}
                       value={content}

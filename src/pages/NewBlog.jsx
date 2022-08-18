@@ -102,6 +102,7 @@ const NewBlog = () => {
               label="Title"
               variant="outlined"
               type="email"
+              required
               multiline
               value={title}
               onChange={(e) => setTitle(e.target.value)}
@@ -111,6 +112,7 @@ const NewBlog = () => {
               label="Image URL*"
               variant="outlined"
               type="email"
+              required
               value={imgUrl}
               onChange={(e) => setImgUrl(e.target.value)}
             />
@@ -120,6 +122,7 @@ const NewBlog = () => {
               variant="outlined"
               type="text-area"
               multiline
+              required
               rows={3}
               value={content}
               onChange={(e) => setContent(e.target.value)}
