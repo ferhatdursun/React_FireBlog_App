@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { initializeApp } from "firebase/app";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
-import { Avatar, Paper, TextField, Typography } from "@mui/material";
+import { Avatar, Grid, Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { getDatabase, ref, set, push } from "firebase/database";
 import { firebase, auth } from "../helpers/firebase";
@@ -63,14 +63,15 @@ const NewBlog = () => {
       >
         <Stack
           marginBottom={20}
-          marginTop={10}
+          marginTop={20}
           bgcolor="white"
           width={400}
-          height={520}
+          height={550}
           textAlign="center"
           justifyContent="center"
           alignItems="center"
-          padding={3}
+          padding={1}
+          paddingBottom={3}
           borderRadius={2}
         >
           <Avatar
@@ -93,9 +94,7 @@ const NewBlog = () => {
               display: "flex",
               variant: "h2",
             }}
-          >
-            {/* <h2 className="NewBlog">── New</h2> <h2>Blog──</h2> */}
-          </Typography>
+          ></Typography>
           <Stack spacing={2} width={350} height={400}>
             <TextField
               id="outlined-basic"
@@ -136,7 +135,7 @@ const NewBlog = () => {
               }}
               variant="contained"
               type="submit"
-              style={{backgroundColor:"black"}}
+              style={{ backgroundColor: "black" }}
             >
               Back
             </Button>
