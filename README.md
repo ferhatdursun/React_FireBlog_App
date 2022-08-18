@@ -1,7 +1,9 @@
 <p>Clarusway<img align="right"
 
-https://app.netlify.com/sites/ferhat-capsstone-fireblog-app/overview
 
+
+Netlify Link:
+https://app.netlify.com/sites/ferhat-capsstone-fireblog-app/overview
 
 
   src="https://secure.meetupstatic.com/photos/event/3/1/b/9/600_488352729.jpeg"  width="15px"></p>
