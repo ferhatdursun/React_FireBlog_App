@@ -71,7 +71,7 @@ const NewBlog = () => {
           justifyContent="center"
           alignItems="center"
           padding={1}
-          paddingBottom={3}
+          paddingBottom={1}
           borderRadius={2}
         >
           <Avatar
