@@ -32,7 +32,7 @@ export default function Profile() {
             marginTop={2}
             bgcolor="white"
             width={500}
-            height="83vh"
+            height="80vh"
             boxShadow={"10px 5px 5px gray"}
             borderRadius={"20px"}
           >

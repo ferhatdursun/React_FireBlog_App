@@ -65,14 +65,15 @@ const NewBlog = () => {
           marginBottom={20}
           marginTop={20}
           bgcolor="white"
-          width={400}
-          height={550}
+          width={500}
+          height="83vh"
           textAlign="center"
           justifyContent="center"
           alignItems="center"
           padding={1}
-          paddingBottom={1}
-          borderRadius={2}
+          paddingBottom={3}
+          boxShadow={"10px 5px 5px gray"}
+          borderRadius={"20px"}
         >
           <Avatar
             src={Block}
