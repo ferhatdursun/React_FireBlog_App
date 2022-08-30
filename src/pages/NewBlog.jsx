@@ -109,7 +109,7 @@ const NewBlog = () => {
             />
             <TextField
               id="outlined-basic"
-              label="Image URL*"
+              label="Image URL"
               variant="outlined"
               type="email"
               required
@@ -118,7 +118,7 @@ const NewBlog = () => {
             />
             <TextField
               id="outlined-basic"
-              label="Content*"
+              label="Content"
               variant="outlined"
               type="text-area"
               multiline
