@@ -33,6 +33,7 @@ const Details = () => {
       const database = getDatabase();
       remove(ref(database, "NewBlog/" + id));
       console.log("Details id", id);
+      navigate("/");
       toastSuccessNotify("Deleted");
     } catch (err) {
       toastDangerNotify(err.message);
