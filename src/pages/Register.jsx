@@ -2,16 +2,11 @@ import React, { useState } from "react";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
 import { Avatar, Paper, TextField, Typography } from "@mui/material";
-import { display, Stack } from "@mui/system";
-import { createUser } from "../helpers/firebase";
-import { getDatabase, ref, set, push, update } from "firebase/database";
-import { firebase, auth } from "../helpers/firebase";
-import { create } from "@mui/material/styles/createTransitions";
+import {  Stack } from "@mui/system";
+import { auth } from "../helpers/firebase";
 import {
-  getAuth,
   createUserWithEmailAndPassword,
-  updateProfile,
-  updateCurrentUser,
+  updateProfile
 } from "firebase/auth";
 import { useNavigate } from "react-router-dom";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
@@ -31,6 +26,7 @@ const Register = () => {
   });
 
   const navigate = useNavigate();
+  
   const { firstName, lastName, email, password } = info;
 
   //? YENI KULLANICI OLUSTURMA

@@ -6,8 +6,7 @@ import Block from "../assets/blok.png";
 import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../app-router/AuthContext";
 import { useParams, useNavigate } from "react-router-dom";
-import { Card, Grid } from "@mui/material";
-import { getDatabase, onValue, ref, update } from "firebase/database";
+import { getDatabase, ref, update } from "firebase/database";
 
 const UpdateBlog = () => {
   const navigate = useNavigate();
@@ -76,7 +75,7 @@ const UpdateBlog = () => {
     <div>
       <div key={id}>
         {gelenVeri.map((i) =>
-          i.i == id ? (
+          i.i === id ? (
             <Paper
               style={{
                 background: `url(https://picsum.photos/1600/900)`,

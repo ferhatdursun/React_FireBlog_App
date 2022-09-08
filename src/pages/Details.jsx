@@ -6,7 +6,6 @@ import CardMedia from "@mui/material/CardMedia";
 import CardActions from "@mui/material/CardActions";
 import IconButton from "@mui/material/IconButton";
 import FavoriteIcon from "@mui/icons-material/Favorite";
-import ShareIcon from "@mui/icons-material/Share";
 import Typography from "@mui/material/Typography";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import Button from "@mui/material/Button";
@@ -14,6 +13,7 @@ import { getDatabase, remove, ref } from "firebase/database";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
 import AddCommentIcon from "@mui/icons-material/AddComment";
 import { Stack } from "@mui/system";
+
 const Details = () => {
   const navigate = useNavigate();
 

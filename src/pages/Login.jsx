@@ -15,6 +15,7 @@ import {
 import { auth } from "../helpers/firebase";
 import { GoogleAuthProvider } from "firebase/auth";
 
+
 //? AuthContext sayfasindan burada ki userObserver cagriliyor
 //? login ise navbarda ki butonlar profil vs oluyor.Login degil ise login ve register butonlari görünüyor.
 //? Kullanıcının signin olup olmadığını takip eden ve kullanıcı değiştiğinde yeni kullanıcıyı response olarak dönen firebase metodu

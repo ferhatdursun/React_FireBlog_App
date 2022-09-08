@@ -67,7 +67,7 @@ export default function Profile() {
                 E-Mail:
                 <p>
                   <p style={{ color: "#046582" }}>
-                    {currentUser?.email}{" "}
+                    {currentUser?.email}
                     <Button
                       style={{
                         backgroundColor: "Black",

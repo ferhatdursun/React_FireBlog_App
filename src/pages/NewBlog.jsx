@@ -1,12 +1,9 @@
 import React, { useContext, useState } from "react";
-import { initializeApp } from "firebase/app";
 import Block from "../assets/blok.png";
 import Button from "@mui/material/Button";
-import { Avatar, Grid, Paper, TextField, Typography } from "@mui/material";
+import { Avatar, Paper, TextField, Typography } from "@mui/material";
 import { Stack } from "@mui/system";
 import { getDatabase, ref, set, push } from "firebase/database";
-import { firebase, auth } from "../helpers/firebase";
-import { getAuth } from "firebase/auth";
 import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
 import { AuthContext } from "../app-router/AuthContext";
 import { useNavigate } from "react-router-dom";
@@ -15,8 +12,11 @@ const NewBlog = () => {
   const [title, setTitle] = useState("");
   const [imgUrl, setImgUrl] = useState("");
   const [content, setContent] = useState("");
+
   const { currentUser } = useContext(AuthContext);
+
   const navigate = useNavigate();
+
   //! Yeni Blog yazisi ekleme
   const create = (e) => {
     e.preventDefault();
@@ -37,6 +37,7 @@ const NewBlog = () => {
       });
 
       toastSuccessNotify("Added to Dasboard");
+      navigate("/");
       setTitle("");
       setImgUrl("");
       setContent("");

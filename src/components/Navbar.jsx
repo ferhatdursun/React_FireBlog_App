@@ -2,11 +2,10 @@ import React, { useContext } from "react";
 import Fd from "../assets/fd.png";
 import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import { onAuthStateChanged, signOut } from "firebase/auth";
+import {  signOut } from "firebase/auth";
 import { auth } from "../helpers/firebase";
 import { AuthContext } from "../app-router/AuthContext";
 import {
-  toastWarnNotify,
   toastDangerNotify,
   toastSuccessNotify,
 } from "../helpers/toastNotify";
@@ -19,8 +18,8 @@ const Navbar = () => {
   //  const currentUser = { displayName: "ferhat" };
   // const currentUser = false;
 
-  //! Logout
 
+  //! Logout
   const logOut = () => {
     try {
       signOut(auth).then((res) => {

@@ -11,7 +11,6 @@ import { useNavigate } from "react-router-dom";
 import { AuthContext } from "../app-router/AuthContext";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import AddCommentIcon from "@mui/icons-material/AddComment";
-import Fd from "../assets/fd.png";
 
 const Dasboard = () => {
   const navigate = useNavigate();
