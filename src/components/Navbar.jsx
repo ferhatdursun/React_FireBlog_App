@@ -1,14 +1,10 @@
 import React, { useContext } from "react";
 import Fd from "../assets/fd.png";
-import Button from "@mui/material/Button";
 import { useNavigate } from "react-router-dom";
-import {  signOut } from "firebase/auth";
+import { signOut } from "firebase/auth";
 import { auth } from "../helpers/firebase";
 import { AuthContext } from "../app-router/AuthContext";
-import {
-  toastDangerNotify,
-  toastSuccessNotify,
-} from "../helpers/toastNotify";
+import { toastDangerNotify, toastSuccessNotify } from "../helpers/toastNotify";
 
 const Navbar = () => {
   const navigate = useNavigate();
@@ -17,7 +13,6 @@ const Navbar = () => {
   const { currentUser } = useContext(AuthContext);
   //  const currentUser = { displayName: "ferhat" };
   // const currentUser = false;
-
 
   //! Logout
   const logOut = () => {
@@ -35,7 +30,11 @@ const Navbar = () => {
 
   return (
     <div className="Navbar">
-      <a href="https://www.linkedin.com/in/ferhat-dursun1" target="_blank">
+      <a
+        href="https://www.linkedin.com/in/ferhat-dursun1"
+        target="_blank"
+        rel="noreferrer"
+      >
         <img src={Fd} alt="" width="85px" className="claruswaynavbar" />
       </a>
       <div className="navbarEDEN" onClick={() => navigate("/")}>
@@ -48,7 +47,7 @@ const Navbar = () => {
           <hr className="block" width="30px" />
         </i>
       </div>
-      <div>
+      <div className="NavbarButton">
         {currentUser ? (
           <>
             <button
@@ -73,23 +72,22 @@ const Navbar = () => {
           </>
         ) : (
           <>
-            <Button
-              variant="contained"
-              sx={{ mr: 1 }}
+            <button
+              className="Profile"
               onClick={() => {
                 navigate("/Login");
               }}
             >
               Login
-            </Button>
-            <Button
-              variant="contained"
+            </button>
+            <button
+              className="NLogout"
               onClick={() => {
                 navigate("/Register");
               }}
             >
               Register
-            </Button>
+            </button>
           </>
         )}
       </div>

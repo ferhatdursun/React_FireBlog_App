@@ -20,11 +20,11 @@ const Dasboard = () => {
 
   return (
     <div style={{ backgroundColor: "#F1E9E3" }}>
-      <div>
-        <h1 className="Dasboard" xs={10} md={6} lg={4} xl={2}>
+      
+        <h1 className="Dasboard">
           ──── Dasboard ────
         </h1>
-      </div>
+      
       <div>
         <Grid container justifyContent="center" flexWrap="wrap">
           {gelenVeri?.map((i, id) => {

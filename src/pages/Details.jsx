@@ -27,7 +27,8 @@ const Details = () => {
   console.log(gelenVeri, id);
   console.log("GelenBlog;", gelenBlog);
 
-  //! Card Silme
+  
+  //! Delete Card 
   const DeleteData = (id) => {
     try {
       const database = getDatabase();
