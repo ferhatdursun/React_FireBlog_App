@@ -1,8 +1,5 @@
-import { Details } from "@mui/icons-material";
-import { push } from "firebase/database";
 import React, { createContext, useEffect, useState } from "react";
 import { userObserver } from "../pages/Login";
-import NewBlog from "../pages/NewBlog";
 import { getDatabase, onValue, ref } from "firebase/database";
 
 //! ilk olarak burada createContext olusturduk.
@@ -42,10 +39,10 @@ console.log(currentUser);
 
   //! burada Login sayfasinda ki userObserver icinde setCurrentUser ile cagriliyor.
   useEffect(() => {
-    GelenVeriler();
+    GelenVeriler()
     // setCurrentUser(JSON.parse(sessionStorage.getItem("user")))
-    userObserver(setCurrentUser);
-  }, []);
+    userObserver(setCurrentUser)
+  },[]);
 
   return (
     <AuthContext.Provider value={{ currentUser, gelenVeri }}>

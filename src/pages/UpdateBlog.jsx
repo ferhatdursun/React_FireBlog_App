@@ -7,6 +7,7 @@ import { useEffect, useState, useContext } from "react";
 import { AuthContext } from "../app-router/AuthContext";
 import { useParams, useNavigate } from "react-router-dom";
 import { getDatabase, ref, update } from "firebase/database";
+import { toastSuccessNotify, toastDangerNotify } from "../helpers/toastNotify";
 
 const UpdateBlog = () => {
   const navigate = useNavigate();
@@ -56,20 +57,24 @@ const UpdateBlog = () => {
 
   //! Update islemi
   const writeNewBlog = () => {
-    const db = getDatabase();
-    const postData = {
-      title: title,
-      imgUrl: imgUrl,
-      content: content,
-      author: currentUser.email,
-      date: date,
-    };
-    // successNote("Successfully Updated");
-    navigate("/");
-    // Write the new post's data simultaneously in the posts list and the user's post list.
-    const updates = {};
-    updates["/NewBlog/" + id] = postData;
-    return update(ref(db), updates);
+    try {
+      const db = getDatabase();
+      const postData = {
+        title: title,
+        imgUrl: imgUrl,
+        content: content,
+        author: currentUser.email,
+        date: date,
+      };
+      navigate("/");
+      toastSuccessNotify("Successfully Updated");
+      // Write the new post's data simultaneously in the posts list and the user's post list.
+      const updates = {};
+      updates["/NewBlog/" + id] = postData;
+      return update(ref(db), updates);
+    } catch (err) {
+      toastDangerNotify(err.message);
+    }
   };
   return (
     <div>

@@ -41,6 +41,7 @@ const NewBlog = () => {
       setTitle("");
       setImgUrl("");
       setContent("");
+      //! Bunlar, veriler gönderildikten sonra inputlarin iclerinin bosalmasi icin.
     } catch (err) {
       toastDangerNotify(err.message);
     }

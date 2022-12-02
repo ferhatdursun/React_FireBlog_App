@@ -59,7 +59,8 @@ const Login = () => {
       sessionStorage.setItem("user", JSON.stringify(userCredential.user));
       toastSuccessNotify("Erfolgreich");
       navigate("/");
-    } catch (err) {
+    }
+    catch (err) {
       toastDangerNotify(err.message);
     }
   };

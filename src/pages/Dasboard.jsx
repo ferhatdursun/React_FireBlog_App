@@ -15,16 +15,14 @@ import AddCommentIcon from "@mui/icons-material/AddComment";
 const Dasboard = () => {
   const navigate = useNavigate();
   const { currentUser, gelenVeri } = useContext(AuthContext); //! Bunun ile AuthContext de bulunan user datalarini buraya cektik ve asagida i.author olarak yazdirdik.
-  console.log("currentUserSon", currentUser);
-  // ! useEffect icerisinde sonsuz döngüye girmemesi icin kapatmasinin yanina  koymamiz gerekiyor.
+  console.log("currentUser", currentUser);
+  //! useEffect icerisinde sonsuz döngüye girmemesi icin kapatmasinin yanina  koymamiz gerekiyor.
 
   return (
     <div style={{ backgroundColor: "#F1E9E3" }}>
-      
         <h1 className="Dasboard">
           ──── Dasboard ────
         </h1>
-      
       <div>
         <Grid container justifyContent="center" flexWrap="wrap">
           {gelenVeri?.map((i, id) => {
